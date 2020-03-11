@@ -31,7 +31,7 @@ public class Character implements Serializable {
     private Character mother;
 
     @OneToMany
-    private List<Character> children;
+    private List<Character> heirs;
 
     @ManyToOne
     private House house;
@@ -39,7 +39,7 @@ public class Character implements Serializable {
     public Character() {
     }
 
-    public Character(String name, String born, String photo, String genre, List<String> titles, String player, Character father, Character mother, List<Character> children) {
+    public Character(String name, String born, String photo, String genre, List<String> titles, String player, Character father, Character mother, List<Character> heirs) {
         this.name = name;
         this.born = born;
         this.photo = photo;
@@ -48,7 +48,7 @@ public class Character implements Serializable {
         this.player = player;
         this.father = father;
         this.mother = mother;
-        this.children = children;
+        this.heirs = heirs;
     }
 
     public Long getId() {
@@ -119,12 +119,12 @@ public class Character implements Serializable {
         this.mother = mother;
     }
 
-    public List<Character> getChildren() {
-        return children;
+    public List<Character> getHeirs() {
+        return heirs;
     }
 
-    public void setChildren(List<Character> children) {
-        this.children = children;
+    public void setHeirs(List<Character> children) {
+        this.heirs = children;
     }
 
     public House getHouse() {
