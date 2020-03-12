@@ -19,10 +19,11 @@ public class Character implements Serializable {
 
     private String genre;
 
-    @ElementCollection
-    private List<String> titles;
-
     private String player;
+
+    @ElementCollection
+    @CollectionTable
+    private List<String> titles;
 
     @ManyToOne
     private Character father;
@@ -35,21 +36,6 @@ public class Character implements Serializable {
 
     @ManyToOne
     private House house;
-
-    public Character() {
-    }
-
-    public Character(String name, String born, String photo, String genre, List<String> titles, String player, Character father, Character mother, List<Character> heirs) {
-        this.name = name;
-        this.born = born;
-        this.photo = photo;
-        this.genre = genre;
-        this.titles = titles;
-        this.player = player;
-        this.father = father;
-        this.mother = mother;
-        this.heirs = heirs;
-    }
 
     public Long getId() {
         return id;
@@ -87,20 +73,20 @@ public class Character implements Serializable {
         this.genre = gener;
     }
 
-    public List<String> getTitles() {
-        return titles;
-    }
-
-    public void setTitles(List<String> titles) {
-        this.titles = titles;
-    }
-
     public String getPlayer() {
         return player;
     }
 
     public void setPlayer(String player) {
         this.player = player;
+    }
+
+    public List<String> getTitles() {
+        return titles;
+    }
+
+    public void setTitles(List<String> titles) {
+        this.titles = titles;
     }
 
     public Character getFather() {
@@ -134,4 +120,5 @@ public class Character implements Serializable {
     public void setHouse(House house) {
         this.house = house;
     }
+
 }

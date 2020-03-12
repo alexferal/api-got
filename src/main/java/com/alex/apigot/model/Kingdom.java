@@ -12,6 +12,7 @@ public class Kingdom implements Serializable {
     private Long id;
 
     private String name;
+
     private String region;
 
     @OneToMany

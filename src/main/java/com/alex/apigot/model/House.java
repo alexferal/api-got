@@ -1,18 +1,22 @@
 package com.alex.apigot.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class House {
+public class House implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String name;
+
     private String coatOfArms;
+
     private String photo;
+
     private String houseMotto;
 
     @OneToMany
@@ -20,9 +24,6 @@ public class House {
 
     @ManyToOne
     private Kingdom kingdom;
-
-    public House() {
-    }
 
     public Long getId() {
         return id;
